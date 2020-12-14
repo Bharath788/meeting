@@ -1,38 +1,118 @@
-.App {
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.heading_style{
+  text-align: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+label{
+  color: solid black;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.heading_style_home{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logout{
+  float: right;
+  color: #2d6358;
+  margin: 10px;
+  font-size: 16px;
+  display: inline-block;
+  padding: 15px 15px;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.form_block{
+  width: 400px;
+  display: table;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0,0,0,.1);
+  padding: 5px;
+  border-radius: 5px;
+}
+.form_block > #title{
+  background: #3d8577;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  text-shadow: -1px -1px 0 rgba(0,0,0,.2);
+}
+.form_block > .body{
+	background: #FFFFFF;
+  padding: 10px;
+  display: table;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input[type='text'],input[type='password'] {
+  height: 45px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 4px 5px;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.loginBtn{
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px 10px;
+  background: #f5f4ea;
+  border: 1px solid #d0d0d0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.loginBtn:hover{
+  background: #c3c3ba;
+}
+.registerBtn{
+  float: right;
+  background: #3d8577;
+  color: #fff;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px 10px;
+  border: 1px solid #d0d0d0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: -35px;
+}
+.registerBtn:hover{
+  background: #2d6358;
+}
+.Error{
+  padding: 10px;
+  background-color: #feeaea;
+  border: 1px solid #fadadb;
+  margin-bottom: 10px;
+  border-radius: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.Spinner{
+  display: table;
+  margin: 0 auto;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Spinner > .ImgSpinner {
+  max-width: 30px;
 }

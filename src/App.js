@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import LoginRegister from './components/LoginRegister';
+import Home from './components/Home';
+import fire from './config/Fire';
 import './App.css';
+import Spinner from './assets/loader.gif';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+  constructor(){
+    super();
+    this.state = {
+      user: null,
+      loading: true
+    }
+  }
+
+  componentDidMount(){
+    this.authListener();
+    setTimeout(function() {
+      this.setState({
+        loading: false
+      });
+    }.bind(this), 1000);
+  }
+
+  authListener(){
+    fire.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.setState({user});
+      }else{
+        this.setState({user:null});
+      }
+    });
+  }
+
+  render(){
+    if (this.state.loading){
+      return (
+        <div className="Spinner">
+          <img src={Spinner} alt="Spinner" />
+        </div>);
+  }
+    return (
+        <div>
+          {this.state.user ? (<Home />) : (<LoginRegister />)}
+        </div>
+    );
+  }
+
 }
 
 export default App;
