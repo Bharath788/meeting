@@ -18,7 +18,7 @@ class Notes extends Component {
 
     AddNewNote = (note) => {
         const BackUpState = this.state.notes;
-        BackUpState.push({id: BackUpState.length + 1, content: note});
+        BackUpState.push({id: BackUpState.length + 1, content: note,name: this.state.name});
         fire.database().ref('Notes/').push({
             id: this.state.notes.length + 1,
             name: this.state.name,
@@ -26,7 +26,8 @@ class Notes extends Component {
         }).then((data)=>{
             
             this.setState({
-                notes: []
+                notes: [],
+                name:''
             })
         }).catch((error)=>{
            
@@ -36,14 +37,16 @@ class Notes extends Component {
 
     componentWillMount(){
         const BackUpState = this.state.notes;
+        const BackUpStateName =this.state.name;
         fire.database().ref('Notes/').once('value', function
         (snapshot) {
             snapshot.forEach(function(childSnapshot){
-                BackUpState.push({id: BackUpState.length + 1, content: childSnapshot.val().note});
+                BackUpState.push({id: BackUpState.length + 1, content: childSnapshot.val().note , name: BackUpStateName});
             })
         });
         this.setState({
-            notes: BackUpState
+            notes: BackUpState,
+            name : BackUpStateName
         })
         console.log(this.state);
     }
@@ -73,7 +76,8 @@ class Notes extends Component {
                         return (
                             <Note content = {note.content} 
                                 id = {note.id} 
-                                key = {note.id} />
+                                key = {note.id}
+                                 />
                         )
                     })
                 } */}

@@ -39,6 +39,7 @@ class LoginRegister extends Component {
         .catch((error) => {
             this.setState({fireErrors: error.message})
         });
+       
     }
 
 
@@ -52,7 +53,7 @@ class LoginRegister extends Component {
             
         let submitBtn = this.state.loginBtn ? 
             (<input className="loginBtn" type="submit" onClick={this.login} value="Submit" />) : 
-            (<input className="loginBtn" type="submit" onClick={this.register} value="Register" />);
+            (<input className="loginBtn" type="submit" onClick={this.register} value="submit" />);
 
         let login_register = this.state.loginBtn ?
             (<button className="registerBtn" onClick={() => this.getAction('reg')}>Register</button>) : 
